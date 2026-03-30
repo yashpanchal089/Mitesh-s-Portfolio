@@ -27,7 +27,9 @@ export default function Contact() {
     if (!serviceId || !templateId || !publicKey) {
       const subject = encodeURIComponent(`Contact from ${formState.name}`)
       const body = encodeURIComponent(`Name: ${formState.name}\nEmail: ${formState.email}\n\n${formState.message}`)
-      window.location.href = `mailto:${data.email}?subject=${subject}&body=${body}`
+      const mailto = `mailto:${data.email}?subject=${subject}&body=${body}`
+      window.alert('message sent')
+      window.location.href = mailto
       setSubmitted(true)
       setFormState({ name: '', email: '', message: '' })
       return
@@ -37,6 +39,7 @@ export default function Contact() {
       setSending(true)
       await emailjs.send(serviceId, templateId, templateParams, publicKey)
       setSubmitted(true)
+      window.alert('message sent')
       setFormState({ name: '', email: '', message: '' })
     } catch (err) {
       console.error('Email send error', err)
@@ -138,7 +141,7 @@ export default function Contact() {
             <p className="mt-4 text-center font-body text-red-500 text-sm">{error}</p>
           )}
           {!sending && submitted && !error && (
-            <p className="mt-4 text-center font-body text-primary-500 text-sm">Thanks! I&apos;ll get back to you soon.</p>
+            <p className="mt-4 text-center font-body text-primary-500 text-sm">message sent</p>
           )}
         </motion.div>
 
