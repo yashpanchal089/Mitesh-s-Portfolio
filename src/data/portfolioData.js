@@ -4,7 +4,7 @@ export const hero = {
   tagline: 'Driving business transformation through data-driven insights.',
   typingWords: ['Data Analytics', 'Business Strategy', 'Automation', 'Cloud & ERP', 'Process Optimization'],
   photo: '/profile.png',
-  resumeUrl: '/resume.pdf',
+  resumeUrl: 'Resume.pdf',
   location: 'Mumbai, India',
 }
 
